@@ -66,7 +66,7 @@ class BladeDirectives
     public function cache($key, $minutes = null): bool
     {
         ob_start();
-        
+
         return $this->cache->has($this->applyData($key, $minutes));
     }
     
@@ -126,8 +126,16 @@ class BladeDirectives
      *
      * @return mixed
      */
-    public function endCache()
+    public function endCache($postProcesses = null)
     {
+        if ($postProcesses instanceof \Illuminate\Support\Collection)
+        {
+            $data = $this->cache->put($this->getKey(), ob_get_clean(), $this->getMinutes());
+            $postProcesses->each(function ($value, $key) use (&$data) {
+                $data = str_replace($key, $value, $data);
+            });
+            return $data;
+        }
         return $this->cache->put($this->getKey(), ob_get_clean(), $this->getMinutes());
     }
     

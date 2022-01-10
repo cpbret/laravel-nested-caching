@@ -51,13 +51,13 @@ class NestedCachingServiceProvider extends ServiceProvider
             return "<?php if ( ! app('SlyDeath\NestedCaching\BladeDirectives')->cache({$expression}) ) { ?>";
         });
         
-        Blade::directive('endcache', function () {
-            return "<?php } echo app('SlyDeath\NestedCaching\BladeDirectives')->endCache(); ?>";
+        Blade::directive('endcache', function ($expression = null) {
+            return "<?php } echo app('SlyDeath\NestedCaching\BladeDirectives')->endCache({$expression}); ?>";
         });
         
         // Not the Laravel way, but for some beauty and flexible :)
-        Blade::directive('endCache', function () {
-            return "<?php } echo app('SlyDeath\NestedCaching\BladeDirectives')->endCache(); ?>";
+        Blade::directive('endCache', function ($expression = null) {
+            return "<?php } echo app('SlyDeath\NestedCaching\BladeDirectives')->endCache({$expression}); ?>";
         });
     }
     
