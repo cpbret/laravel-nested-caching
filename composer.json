@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "php": "^7.4|^8.0",
-    "laravel/framework": "^v9.0.0"
+    "php": "^7.4|^8.0|8.1",
+    "laravel/framework": "^v10.0.0"
   },
   "minimum-stability": "dev",
   "autoload": {
