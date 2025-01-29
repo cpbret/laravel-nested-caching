@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": "^7.4|^8.0|8.1",
-    "laravel/framework": "^v10.0.0"
+    "laravel/framework": "^v10.0|^v11.0|^v12.0"
   },
   "minimum-stability": "dev",
   "autoload": {
